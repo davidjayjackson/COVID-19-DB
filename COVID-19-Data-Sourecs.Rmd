@@ -1,7 +1,7 @@
 ---
 title: "Update COVID-19 SQLite DB"
 author: "David Jackson"
-date: "8/16,2020"
+date: "8/17/2020"
 output: html_document
 ---
 
@@ -20,11 +20,10 @@ library(tidyverse)
 rm(list=ls())
 db <- dbConnect(SQLite(), dbname="../COVIDDB/COVID.sqlite3")
 
-ECDC <- read.csv("../DATA/COVID-19-ECDOC-2020-08-17.csv")
+ECDC <- read.csv("../DATA/COVID-19-ECDCP-2020-08-18.csv")
 ECDC$dateRep <- gsub("/","-",ECDC$dateRep)
 ECDC$dateRep <- as.Date(ECDC$dateRep,format="%m-%d-%Y")
-
-ECDC <- ECDC[c(1,5,6,7,8,11,12)]
+# ECDC <- ECDC[c(1,5,6,7,8,11,12)]
 colnames(ECDC) <- c("Reported","Cases","Deaths","Countries","geoID","Continent","Cumative")  
 ECDC$Countries <-ifelse(ECDC$Countries=="United_States_of_America","USA",ECDC$Countries)
 ECDC$Countries <-ifelse(ECDC$Countries=="Cases_on_an_international_conveyance_Japan","Japan",ECDC$Countries)
