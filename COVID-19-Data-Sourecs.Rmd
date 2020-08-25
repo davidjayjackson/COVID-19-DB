@@ -20,7 +20,7 @@ library(tidyverse)
 rm(list=ls())
 db <- dbConnect(SQLite(), dbname="../COVIDDB/COVID.sqlite3")
 
-ECDC <- read.csv("../DATA/COVID-19--2020-08-24.csv")
+ECDC <- read.csv("../DATA/COVID-19-2020-08-25.csv")
 ECDC$dateRep <- gsub("/","-",ECDC$dateRep)
 ECDC$dateRep <- as.Date(ECDC$dateRep,format="%m-%d-%Y")
 ECDC <- ECDC[c(1:5)]
