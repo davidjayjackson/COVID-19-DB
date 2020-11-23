@@ -77,7 +77,7 @@ JHU <- dbGetQuery(db,"select * from JHUDATA where country='US'")
 JHU$date <- as.Date(JHU$date)
 CASES <- diff(JHU$confirmed,lag=1)
 CASES <- as.data.frame(CASES)
-CASES$YMD <- seq(as.Date("2020-01-23"),as.Date("2020-11-21"),"day")
+CASES$YMD <- seq(as.Date("2020-01-23"),as.Date("2020-11-22"),"day")
 
 ```
 ```{r}
@@ -87,7 +87,7 @@ CASES$YMD <- seq(as.Date("2020-01-23"),as.Date("2020-11-21"),"day")
 JHU <- subset(JHU,date >="2020-02-28")
 DEATHS <- diff(JHU$deaths,lag=1)
 DEATHS <- as.data.frame(DEATHS)
-DEATHS$YMD <- seq(as.Date("2020-02-29"),as.Date("2020-11-21"),"day")
+DEATHS$YMD <- seq(as.Date("2020-02-29"),as.Date("2020-11-22"),"day")
 mean(CASES$CASES)
 
 mean(DEATHS$DEATHS)
@@ -191,14 +191,22 @@ ggplotly(plot2)
   
 ```
 
-## exponential Moving Average
+## Exponential Moving Average
 
 
 ```{r}
 # AA$EXP1<- movavg(AA$Cases,17,"e")
 AA$EXP2<- movavg(AA$Cases,28,"e")
+AA$EXP3<- movavg(AA$Deaths,28,"e")
 ggplot(AA) + 
   geom_line(aes(x=Reported,y=EXP2,col="28")) + 
   geom_line(aes(x=Reported,y=Cases,col="Cases"))
+
+
+ggplot(AA) + 
+  geom_line(aes(x=Reported,y=EXP3,col="28 Roll Mean")) + 
+  geom_line(aes(x=Reported,y=Deaths,col="Daily Deaths"))
+
+
 ```
 
