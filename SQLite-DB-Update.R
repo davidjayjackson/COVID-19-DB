@@ -9,7 +9,7 @@ db <- dbConnect(SQLite(), dbname="../COVIDDB/COVID.sqlite3")
 ECDC <- read.csv("../DATA/COVID-19.csv")
 ECDC$dateRep <- gsub("/","-",ECDC$dateRep)
 ECDC$dateRep <- as.Date(ECDC$dateRep,format="%m-%d-%Y")
-colnames(ECDC) <- c("Reported","Cases","Deaths","Countries","geoID","Population")
+colnames(ECDC) <- c("Reported","Cases","Deaths","Countries","geoID","Continent","Population")
   
 ECDC$Countries <-ifelse(ECDC$Countries=="United_States_of_America","USA",ECDC$Countries)
 ECDC$Countries <-ifelse(ECDC$Countries=="Cases_on_an_international_conveyance_Japan","Japan",ECDC$Countries)
