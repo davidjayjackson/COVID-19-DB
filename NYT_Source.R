@@ -1,4 +1,26 @@
+## 
+### Update New York Times COVID-19 Table(2020-12-07)
+## NY Times US States Data Analysis
+##  GitHub: https://github.com/nytimes/covid-19-data.git
+db1 <- dbConnect(SQLite(), dbname="../COVIDDB/NYTimes.sqlite3")
 
+USA <- read.csv("../DATA/us.csv")
+us_counties <- read.csv("../DATA/us-counties.csv")
+us_states <- read.csv("../DATA/us-states.csv")
+
+
+USA$date <- as.character(USA$date)
+dbWriteTable(db1, "USA",USA ,overwrite=TRUE)
+
+us_states$date <- as.character(us_states$date)
+dbWriteTable(db1, "us_counties",us_counties ,overwrite=TRUE)
+
+us_states$date <- as.character(us_states$date)
+dbWriteTable(db1, "us_states",us_states ,overwrite=TRUE)
+dbListTables(db1)
+
+
+##
 us_total <- us_states %>% group_by(date) %>% 
 summarise(Cases=sum(cases), Deaths = sum(deaths),                                                                   DeathRate = Deaths/Cases)
 
@@ -26,8 +48,8 @@ STATESDAILY <- STATESDAILY %>% mutate(new_cases = TotalCases - PreviousTotalCase
 STATESDAILY <- STATESDAILY %>% mutate(new_deaths = TotalDeaths - PreviousTotalDeaths)
 STATESDAILY <- STATESDAILY %>% mutate(death_rate = new_deaths / new_cases)
 STATESDAILY$date <- as.character(STATESDAILY$date)
-dbWriteTable(db, "STATESDAILY",STATESDAILY ,overwrite=TRUE)
-
+dbWriteTable(db1, "STATESDAILY",STATESDAILY ,overwrite=TRUE)
+##
 COUNTYDAILY <-  us_counties %>% 
   group_by(date,state, county) %>%
   summarise(
@@ -46,7 +68,7 @@ COUNTYDAILY <- COUNTYDAILY%>% mutate(new_cases = TotalCases - PreviousTotalCases
 COUNTYDAILY <- COUNTYDAILY%>% mutate(new_deaths = TotalDeaths - PreviousTotalDeaths)
 COUNTYDAILY <- COUNTYDAILY%>% mutate(death_rate = new_deaths/new_cases)
 COUNTYDAILY$date <- as.character(COUNTYDAILY$date)
-dbWriteTable(db, "COUNTYDAILY",COUNTYDAILY,overwrite=TRUE)
+dbWriteTable(db1, "COUNTYDAILY",COUNTYDAILY,overwrite=TRUE)
 
 
 
