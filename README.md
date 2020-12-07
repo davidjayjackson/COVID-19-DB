@@ -6,3 +6,7 @@ John Hopkins Uni CSSE
 
 New York Times COVID-19 Data
 * https://github.com/nytimes/covid-19-data
+
+European CDPC COVID-19:
+
+* https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide
