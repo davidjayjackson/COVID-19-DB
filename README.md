@@ -27,3 +27,8 @@ select enddate,
        )
 group by enddate
 order by enddate;
+
+#### Using curl and wget to pull down directories.
+
+sudo curl -bla /ihave/idea ./
+wget --no-parent -r http://mysite.ie/mydirectory
