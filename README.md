@@ -32,3 +32,7 @@ order by enddate;
 
 sudo curl -bla /ihave/idea ./
 wget --no-parent -r http://mysite.ie/mydirectory
+
+#### Covid-19 data from Our World In Data repo:
+
+https://github.com/owid/covid-19-data
