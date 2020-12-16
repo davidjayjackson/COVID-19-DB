@@ -1,3 +1,5 @@
+library(RSQLite)
+library(dplyr)
 ## 
 ### Update New York Times COVID-19 Table(2020-12-07)
 ## NY Times US States Data Analysis
