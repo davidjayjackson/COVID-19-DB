@@ -6,9 +6,9 @@ library(dplyr)
 ##  GitHub: https://github.com/nytimes/covid-19-data.git
 db1 <- dbConnect(SQLite(), dbname="../COVIDDB/NYTimes.sqlite3")
 
-USA <- read.csv("../DATA/us.csv")
-us_counties <- read.csv("../DATA/us-counties.csv")
-us_states <- read.csv("../DATA/us-states.csv")
+USA <- read.csv("../COVID-19-NYTimes-data//us.csv")
+us_counties <- read.csv("../COVID-19-NYTimes-data/us-counties.csv")
+us_states <- read.csv("../COVID-19-NYTimes-data/us-states.csv")
 
 
 USA$date <- as.character(USA$date)
