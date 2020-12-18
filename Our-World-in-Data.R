@@ -1,4 +1,4 @@
-## Date: 2020-12-16
+## Date: 2020-12-18
 
 library(RSQLite)
 library(ggplot2)
@@ -6,7 +6,7 @@ library(scales)
 library(dplyr)
 ##
 rm(list=ls())
-db <- dbConnect(SQLite(), dbname="../COVIDDB/OURWORLD.sqlite3")
+db <- dbConnect(SQLite(), dbname="../COVID-19-DB/OURWORLD.sqlite3")
 ##
 ### John Hopkins University
 ##

@@ -4,7 +4,7 @@ library(dplyr)
 ### Update New York Times COVID-19 Table(2020-12-07)
 ## NY Times US States Data Analysis
 ##  GitHub: https://github.com/nytimes/covid-19-data.git
-db1 <- dbConnect(SQLite(), dbname="../COVIDDB/NYTimes.sqlite3")
+db <- dbConnect(SQLite(), dbname="../COVID-19-DB/NYTimes.sqlite3")
 
 USA <- read.csv("../COVID-19-NYTimes-data//us.csv")
 us_counties <- read.csv("../COVID-19-NYTimes-data/us-counties.csv")
@@ -12,14 +12,14 @@ us_states <- read.csv("../COVID-19-NYTimes-data/us-states.csv")
 
 
 USA$date <- as.character(USA$date)
-dbWriteTable(db1, "USA",USA ,overwrite=TRUE)
+dbWriteTable(db, "USA",USA ,overwrite=TRUE)
 
 us_states$date <- as.character(us_states$date)
-dbWriteTable(db1, "us_counties",us_counties ,overwrite=TRUE)
+dbWriteTable(db, "us_counties",us_counties ,overwrite=TRUE)
 
 us_states$date <- as.character(us_states$date)
-dbWriteTable(db1, "us_states",us_states ,overwrite=TRUE)
-dbListTables(db1)
+dbWriteTable(db, "us_states",us_states ,overwrite=TRUE)
+dbListTables(db)
 
 
 ##
@@ -50,7 +50,7 @@ STATESDAILY <- STATESDAILY %>% mutate(new_cases = TotalCases - PreviousTotalCase
 STATESDAILY <- STATESDAILY %>% mutate(new_deaths = TotalDeaths - PreviousTotalDeaths)
 STATESDAILY <- STATESDAILY %>% mutate(death_rate = new_deaths / new_cases)
 STATESDAILY$date <- as.character(STATESDAILY$date)
-dbWriteTable(db1, "STATESDAILY",STATESDAILY ,overwrite=TRUE)
+dbWriteTable(db, "STATESDAILY",STATESDAILY ,overwrite=TRUE)
 ##
 COUNTYDAILY <-  us_counties %>% 
   group_by(date,state, county) %>%
@@ -70,7 +70,7 @@ COUNTYDAILY <- COUNTYDAILY%>% mutate(new_cases = TotalCases - PreviousTotalCases
 COUNTYDAILY <- COUNTYDAILY%>% mutate(new_deaths = TotalDeaths - PreviousTotalDeaths)
 COUNTYDAILY <- COUNTYDAILY%>% mutate(death_rate = new_deaths/new_cases)
 COUNTYDAILY$date <- as.character(COUNTYDAILY$date)
-dbWriteTable(db1, "COUNTYDAILY",COUNTYDAILY,overwrite=TRUE)
+dbWriteTable(db, "COUNTYDAILY",COUNTYDAILY,overwrite=TRUE)
 
 
 
