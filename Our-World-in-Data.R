@@ -34,7 +34,9 @@ JHU <- JHU %>% filter(location =="United States")
 OWID <- OWID %>% filter(location =="United States")
 #WHO <- WHO %>% filter(location =="United States")
 ggplot(JHU) +geom_line(aes(x=date,y=new_cases),col="blue") +
-geom_point(data=OWID,aes(x=date,y=new_cases),col="red")
+geom_point(data=OWID,aes(x=date,y=new_cases),col="red") +
+  labs(title="Daily Cases")
 ##
 ggplot(JHU) +geom_line(aes(x=date,y=new_deaths,col="JHU")) +
-  geom_point(data=OWID,aes(x=date,y=new_deaths,col="OWID"))
+  geom_point(data=OWID,aes(x=date,y=new_deaths,col="OWID")) +
+  labs(title="Daily Deaths")
