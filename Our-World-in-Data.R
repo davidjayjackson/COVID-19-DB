@@ -1,9 +1,10 @@
-## Date: 2020-12-20
+## Date: 2020-12-22
 
 library(RSQLite)
 library(ggplot2)
 library(scales)
 library(dplyr)
+
 ##
 rm(list=ls())
 db <- dbConnect(SQLite(), dbname="../COVID-19-DB/OURWORLD.sqlite3")
@@ -34,9 +35,9 @@ JHU <- JHU %>% filter(location =="United States")
 OWID <- OWID %>% filter(location =="United States")
 #WHO <- WHO %>% filter(location =="United States")
 ggplot(JHU) +geom_line(aes(x=date,y=new_cases),col="blue") +
-geom_point(data=OWID,aes(x=date,y=new_cases),col="red") +
+geom_line(data=OWID,aes(x=date,y=new_cases),col="red") +
   labs(title="Daily Cases")
-##
+
 ggplot(JHU) +geom_line(aes(x=date,y=new_deaths,col="JHU")) +
-  geom_point(data=OWID,aes(x=date,y=new_deaths,col="OWID")) +
+  geom_line(data=OWID,aes(x=date,y=new_deaths,col="OWID")) +
   labs(title="Daily Deaths")
