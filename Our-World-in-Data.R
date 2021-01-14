@@ -1,4 +1,4 @@
-## Date: 2021-02-05 12:00 PM/EST
+## Date: 2021-01-21 07:10 PM/EST
 
 library(RSQLite)
 library(ggplot2)
@@ -7,6 +7,7 @@ library(dplyr)
 
 ##
 rm(list=ls())
+db1 <- dbConnect(SQLite(), dbname="../COVID-19-DB/NYTimes.sqlite3")
 db <- dbConnect(SQLite(), dbname="../COVID-19-DB/OURWORLD.sqlite3")
 ##
 ### John Hopkins University
