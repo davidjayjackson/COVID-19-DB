@@ -1,4 +1,4 @@
-## Updated 2021-02-18 11:55 AM/EST
+## Updated 2021-02-19 1:10 PM/EST
 
 library(RSQLite)
 library(dplyr)
@@ -76,7 +76,7 @@ dbWriteTable(db, "COUNTYDAILY",COUNTYDAILY,overwrite=TRUE)
 
 ## Create JHU Vaccination data for USA
 # 
-# us_vaccine <- read.csv("../COVID-19-vaccine-data/data_tables/vaccine_data/raw_data/vaccine_data_us_state_timeline.csv")
-# us_vaccine$date <- as.character(us_vaccine$date)
-# dbWriteTable(db, "usvaccine",us_vaccine ,overwrite=TRUE)
+ # us_vaccine <- read.csv("../COVID-19-vaccine-data/data_tables/vaccine_data/raw_data/vaccine_data_us_state_timeline.csv")
+ # us_vaccine$date <- as.character(us_vaccine$date)
+ # dbWriteTable(db, "usvaccine",us_vaccine ,overwrite=TRUE)
 
