@@ -1,4 +1,4 @@
-## Updated 2021-03-10 12:40 PM/EST
+## Updated 2021-03-15 11:50 AM/EDT
 
 library(tidyverse)
 library(lubridate)
@@ -127,4 +127,3 @@ jh_covid19_data <- jh_covid19_data %>% left_join(jhd_countries) %>%
 # The code essentially follows the following steps
 
 
-##
