@@ -1,10 +1,10 @@
-## Date: 2021-04-26 11:35 AM/EDT
+## Date: 2021-05-04 12:40 PM/EDT
 
 library(RSQLite)
 library(ggplot2)
 library(scales)
 library(dplyr)
-
+ 
 ##
 rm(list=ls())
 db1 <- dbConnect(SQLite(), dbname="../COVID-19-DB/NYTimes.sqlite3")
