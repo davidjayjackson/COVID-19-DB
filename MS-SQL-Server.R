@@ -21,7 +21,7 @@ dbWriteTable(con, "redfish",USA ,overwrite=TRUE)
 dbListFields(con,"redfish")
 
 df <- dbGetQuery(con,"select * from redfish")
-dbCommit(con)
+# dbCommit(con)
 
 df <- dbGetQuery(con,"select * from ABC")
 
@@ -30,4 +30,4 @@ dbDisconnect(con)
 
 
 
-dbDisconnect(con)
+
