@@ -1,4 +1,4 @@
-## Date: 2021-07-13 01:30 PM/EDT
+## Date: 2021-07-14 11:55 PM/EDT
 
 library(RSQLite)
 library(ggplot2)
@@ -37,11 +37,11 @@ OWID <- OWID %>% filter(location =="United States")
 OWID$MAC <- forecast::ma(OWID$new_cases,7,centre = TRUE)
 OWID$MAD <- forecast::ma(OWID$new_deaths,7,centre = TRUE)
 #WHO <- WHO %>% filter(location =="United States")
-ggplot(OWID) +geom_step(aes(x=date,y=new_cases,col="Daily" ),col="blue") +
+ggplot(OWID) +geom_point(aes(x=date,y=new_cases,col="Daily" ),col="blue") +
 geom_line(aes(x=date,y=MAC,col="14 Day Mov Avg"),lwd=2) +
   labs(title="Daily Cases")
 
-ggplot(OWID) +geom_step(aes(x=date,y=new_deaths,col="Daily")) +
+ggplot(OWID) +geom_point(aes(x=date,y=new_deaths,col="Daily")) +
   geom_line(aes(x=date,y=MAD,col="14 Day Mov. Avg."),lwd=2) +
   labs(title="Daily Deaths") + ylim(0,5000)
 
