@@ -1,8 +1,8 @@
-## Updated 2021-08-25 11:58 AM/EDT
+## Updated 2021-09-09  12:10 PM/EDT
  
 library(RSQLite)
 library(dplyr)
-## 
+##  
 ### Update New York Times COVID-19 Table(2020-12-07)
 ## NY Times US States Data Analysis
 ##  GitHub: https://github.com/nytimes/covid-19-data.git
