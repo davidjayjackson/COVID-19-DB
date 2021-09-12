@@ -1,4 +1,4 @@
-## Date: 2021-09-9 12:10  PM/EDT
+## Date: 2021-09-12 1:25  PM/EDT
 
 library(RSQLite)
 library(ggplot2)
@@ -52,7 +52,8 @@ ggplot(OWID) +geom_point(aes(x=date,y=new_cases,col="Daily" ),col="blue") +
 
 ggplot(OWID) +geom_point(aes(x=date,y=new_deaths,col="Daily")) +
   geom_smooth(aes(x=date,y=new_deaths,col="GAM"),method="gam") +
-  labs(title="Daily Deaths") + ylim(0,5000)
+  labs(title="Daily Deaths") + ylim(0,5000) 
+  
 # Try to make errorsbars
 
 # ggplot(OWID,aes(x=date)) +geom_errorbar(aes(ymin=min(new_cases,ymax=max(new_cases))))
