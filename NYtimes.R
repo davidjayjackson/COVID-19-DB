@@ -1,7 +1,9 @@
-## Updated 2021-09-21  12:13 PM/EDT
+## Updated 2021-01-02 4:48 PM/EST
  
 library(RSQLite)
-library(dplyr)
+library(tidyverse)
+library(pracma)
+
 ##  
 ### Update New York Times COVID-19 Table(2020-12-07)
 ## NY Times US States Data Analysis
@@ -79,3 +81,9 @@ dbWriteTable(db, "COUNTYDAILY",COUNTYDAILY,overwrite=TRUE)
 us_vaccine <- read.csv("../COVID-19-vaccine-govex/data_tables/vaccine_data/us_data/time_series/vaccine_data_us_timeline.csv")
 us_vaccine$Date <- as.character(us_vaccine$Date)
 dbWriteTable(db, "usvaccine",us_vaccine ,overwrite=TRUE)
+
+STATESDAILY$date <- as.Date(STATESDAILY$date)
+
+
+
+
