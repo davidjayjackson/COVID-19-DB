@@ -1,9 +1,8 @@
-## Date: 2021-01-02 4:51 PM/EST
-
-library(RSQLite)
+## Date: 2022-02-14 2:42 PM/EST
 library(ggplot2)
 library(scales)
-library(dplyr)
+library(tidyverse)
+library(RSQLite)
  
 ##
 rm(list=ls())
@@ -17,13 +16,23 @@ db <- dbConnect(SQLite(), dbname="../COVID-19-DB/OURWORLD.sqlite3")
 ##
 ### Our World In Data
 ##
-OWID <-read.csv("../covid-19-data/public/data/owid-covid-data.csv")
+
+OWID <-read_csv("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv")
+OWID$date <- as.character(OWID$date)
 dbWriteTable(db,"OWID",OWID ,overwrite=TRUE)
+OWID$date <- as.Date(OWID$date)
+
+
 ##
 ### World Heath Organization
 ##
 
 dbListTables(db)
+
+###
+### Begin SQL Server Code
+## 
+
 ## 
 ## Convert date fields
 #JHU$date <- as.Date(JHU$date)

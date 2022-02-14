@@ -1,4 +1,4 @@
-## Updated 2021-01-02 4:48 PM/EST
+## Updated 2022-02-14 2:14 PM/EST
  
 library(RSQLite)
 library(tidyverse)
@@ -85,5 +85,6 @@ dbWriteTable(db, "usvaccine",us_vaccine ,overwrite=TRUE)
 STATESDAILY$date <- as.Date(STATESDAILY$date)
 
 
+## Ye old dailt avearge from counties data
 
 
