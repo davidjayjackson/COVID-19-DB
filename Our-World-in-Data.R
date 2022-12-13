@@ -1,4 +1,4 @@
-## Date: 2022-02-16 1:42 PM/EST
+## Date: 2022-12-09
 library(ggplot2)
 library(scales)
 library(tidyverse)
@@ -47,11 +47,11 @@ OWID$MAC <- forecast::ma(OWID$new_cases,7,centre = TRUE)
 OWID$MAD <- forecast::ma(OWID$new_deaths,7,centre = TRUE)
 #WHO <- WHO %>% filter(location =="United States")
 ggplot(OWID) +geom_point(aes(x=date,y=new_cases,col="Daily" ),col="blue") +
-geom_line(aes(x=date,y=MAC,col="14 Day Mov Avg"),lwd=2) +
+geom_line(aes(x=date,y=MAC,col="14 Day Mov Avg"),linewidth=2) +
   labs(title="Daily Cases")
 
 ggplot(OWID) +geom_point(aes(x=date,y=new_deaths,col="Daily")) +
-  geom_line(aes(x=date,y=MAD,col="14 Day Mov. Avg."),lwd=2) +
+  geom_line(aes(x=date,y=MAD,col="14 Day Mov. Avg."),linewidth=2) +
   labs(title="Daily Deaths") + ylim(0,5000)
 
 
