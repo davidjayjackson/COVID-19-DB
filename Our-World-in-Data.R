@@ -1,4 +1,4 @@
-## Date: 2022-12-09
+## Date: 2023-04-08
 library(ggplot2)
 library(scales)
 library(tidyverse)
@@ -6,7 +6,7 @@ library(RSQLite)
  
 ##
 rm(list=ls())
-db1 <- dbConnect(SQLite(), dbname="../COVID-19-DB/NYTimes.sqlite3")
+# db1 <- dbConnect(SQLite(), dbname="../COVID-19-DB/NYTimes.sqlite3")
 db <- dbConnect(SQLite(), dbname="../COVID-19-DB/OURWORLD.sqlite3")
 ##
 ### John Hopkins University

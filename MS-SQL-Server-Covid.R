@@ -1,4 +1,4 @@
-## 2022-002-16 1:45 PM/EST
+## 2023-04-08
 
 rm(list = ls())
 ### SQL Server Code
@@ -23,7 +23,7 @@ USA$date <- as.Date(USA$date)
 con <- DBI::dbConnect(odbc::odbc(), 
                       Driver = "SQL Server", 
                       Server = "localhost\\SQLEXPRESS", 
-                      Database = "OurWorldInData", 
+                      Database = "pandemic", 
                       Trusted_Connection = "True")
 
 # dbListTables(con)
