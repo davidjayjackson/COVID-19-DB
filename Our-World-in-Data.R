@@ -1,4 +1,4 @@
-## Date: 2023-04-08
+## Date: 2023-08-18
 library(ggplot2)
 library(scales)
 library(tidyverse)
@@ -39,6 +39,12 @@ dbListTables(db)
 OWID$date <- as.Date(OWID$date)
 #WHO$date <- as.Date(WHO$date)
 ##
+library(writexl)
+US <- OWID |> filter(location =='United States') |>select(location,date,total_cases,total_deaths)
+write_xlsx(US,"./uscovid.xlsx")
+
+world <- OWID |> filter(location =='World') |> select(location,date,total_cases,total_deaths)
+write_xlsx(world,"./worldcovid.xlsx")
 ##  Let's compare Daily Cases from  three Data Sources
 ##
 # JHU <- JHU %>% filter(location =="United States")
@@ -66,3 +72,4 @@ ggplot(OWID) +geom_point(aes(x=date,y=new_deaths,col="Daily")) +
 # Try to make errorsbars
 
 # ggplot(OWID,aes(x=date)) +geom_errorbar(aes(ymin=min(new_cases,ymax=max(new_cases))))
+

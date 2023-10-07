@@ -1,4 +1,4 @@
-## 2023-04-08
+## 2023-08-18
 
 rm(list = ls())
 ### SQL Server Code
@@ -38,7 +38,6 @@ dbListFields(con,"Covid")
 dbGetQuery(con,"select max(date) from Covid")
 # dbCommit(con)
 
-dbDisconnect(con)
 
 
 
